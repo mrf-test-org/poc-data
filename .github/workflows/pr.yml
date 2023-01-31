@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag my-image-name:${{ env.BRANCH }}
+        run: docker build . --file Dockerfile --tag my-image-name:${GITHUB_REF_NAME}
 
       - name: Run Trivy vulnerability scanner in IaC mode
         uses: aquasecurity/trivy-action@master
